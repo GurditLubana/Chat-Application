@@ -1,5 +1,9 @@
 import express from "express";
 import env from "dotenv";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 env.config();
@@ -11,7 +15,7 @@ app.get("/api", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend/build", "index.html"));
+    res.sendFile(__dirname +"/front-end/build/index.html");
 });
 
 app.listen(port, () => {
