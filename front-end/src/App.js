@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
+import SendMsg from './components/SendMsg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -25,7 +27,7 @@ function App() {
         <p>Hello world {message}.</p>
       </header> */}
 
-      {/* <SendMsg/> */}
+      <SendMsg />
     </div>
   );
 }

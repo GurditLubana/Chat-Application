@@ -1,0 +1,14 @@
+    .inputMsg {
+        display: flex;
+        position: fixed;
+        bottom: 2%;
+        left: 20%;
+        right: 20%;
+        margin: auto !important;
+        justify-items: center;
+        max-width: 60% !important;
+}
+
+.form-control {
+    background-color: #fff3cd6e !important;
+}
