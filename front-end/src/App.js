@@ -5,20 +5,20 @@ import SendMsg from './components/SendMsg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [message, setMessage] = useState('');
+  // const [message, setMessage] = useState('');
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('/api');
-        setMessage(response.data.message);
-      } catch (error) {
-        console.error('There was an error!', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get('/api');
+  //       setMessage(response.data.message);
+  //     } catch (error) {
+  //       console.error('There was an error!', error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   return (
     <div className="App">

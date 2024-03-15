@@ -8,9 +8,10 @@ import { Server } from 'socket.io';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const server = createServer(app);
+
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000", // Adjust this to your client app's URL
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"],
     credentials: true,
   }
@@ -21,16 +22,16 @@ env.config();
 
 const port = process.env.PORT;
 
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello from the backend via Axios!" });
-});
+// app.get("/api", (req, res) => {
+//   res.json({ message: "Hello from the backend via Axios!" });
+// });
 
 app.get("*", (req, res) => {
     res.sendFile(__dirname +"/front-end/build/index.html");
 });
 
 io.on("connection", (socket) => {
-  console.log('a user connected from front end');
+  console.log(`a user connected from front end ${socket.id}`);
 });
 
 server.listen(port, () => {
