@@ -20,10 +20,12 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <p>Message from backend: {message}.</p>
         <p>Hello world {message}.</p>
-      </header>
+      </header> */}
+
+      {/* <SendMsg/> */}
     </div>
   );
 }
