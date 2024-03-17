@@ -9,6 +9,8 @@ import SocketContext from "./socketContext";
 function App() {
   
   const[socket, setSocket] = useState(null);
+  const[newMessage, setNewMessage] = useState(null)
+  const[messageList, setMsgList] = useState(["hello", "kive o", "mai theek"])
 
   useEffect(() => {
     const newSocket = io("http://localhost:3001");
@@ -24,12 +26,20 @@ function App() {
     };
     
   }, []);
+
+  const updateMsg = (newMessage)=>{
+
+    setNewMessage(newMessage);
+    setMsgList(list => [...list, newMessage]);
+
+  }
+
   
   return (
     <SocketContext.Provider value={socket}>
       <div className="App">
-        <MessageBody/>
-        <SendMsg  />
+        <MessageBody messageList={messageList}/>
+        <SendMsg  setNewMessage={updateMsg}/>
       </div>
     </SocketContext.Provider>
   );

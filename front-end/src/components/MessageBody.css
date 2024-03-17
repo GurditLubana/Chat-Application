@@ -12,3 +12,17 @@
   justify-items: center;
   max-width: 60% !important;
 }
+
+.msgs{
+list-style: none;
+flex-direction: column;
+align-items: end;
+
+}
+
+.newMsg{
+  background-color: #00a884;
+  display: inline-block;
+  border-radius: 4px;
+  
+}

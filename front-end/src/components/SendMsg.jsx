@@ -5,16 +5,17 @@ import Form from 'react-bootstrap/Form';
 import "./SendMsg.css"
 import SocketContext from '../socketContext';
 
-export default function Sendmsg() {
+export default function Sendmsg(props) {
 
   const socket = useContext(SocketContext)
   const[currentMsg, setNewMsg] = useState("");
 
   function handlesubmit(e){
     e.preventDefault()
-    console.log(currentMsg)
+    // console.log(currentMsg)
     setNewMsg('');
     socket.emit("newMessage", currentMsg)
+    props.setNewMessage(currentMsg)
    
   }
   function handleChange(e) {
