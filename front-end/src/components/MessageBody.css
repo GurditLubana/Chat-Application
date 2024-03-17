@@ -1,16 +1,16 @@
 .msgBody {
   background-image: url("../../public/images/background.png");
   height: 92vh;
-  /* max-width: 60% !important; */
   display: flex;
   position: fixed;
-  bottom: 8%;
+  bottom: 9%;
   top:1%;
   left: 20%;
   right: 20%;
   margin: auto !important;
   justify-items: center;
   max-width: 60% !important;
+  overflow-y:scroll;
 }
 
 .msgs{

@@ -4,6 +4,21 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { createServer } from 'node:http';
 import { Server } from 'socket.io';
+import pg from 'pg';
+
+env.config();
+const db = new pg.Client({
+  user: process.env.DB_USERNAME,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+
+});
+db.connect((err)=>{
+  if(err) throw err;
+  console.log("Connected to PostgreSQL Database!")
+})
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -18,13 +33,9 @@ const io = new Server(server, {
 });
 
 
-env.config();
 
 const port = process.env.PORT;
 
-// app.get("/api", (req, res) => {
-//   res.json({ message: "Hello from the backend via Axios!" });
-// });
 
 app.get("*", (req, res) => {
     res.sendFile(__dirname +"/front-end/build/index.html");
