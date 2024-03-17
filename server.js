@@ -32,7 +32,12 @@ app.get("*", (req, res) => {
 
 io.on("connection", (socket) => {
   console.log(`a user connected from front end ${socket.id}`);
-  socket.on('newMessage', (message)=>{console.log(message)})
+
+  socket.on('newMessage', (message)=>{
+    console.log(message);
+  
+  });
+    
   socket.on('disconnect', reason => {
     console.log(`disconnect ${socket.id} due to ${reason}`);
   });
