@@ -47,12 +47,12 @@ io.on("connection", (socket) => {
   console.log(`a user connected from front end ${socket.id}`);
 
   socket.on('newMessage', async (message)=>{
-    console.log(message);
+    // console.log(message);
     db.query(`INSERT INTO ChatMessages (message, sender) VALUES ($1, $2);`,[message, socket.id]);
     const messageList = await db.query("SELECT * FROM CHATMESSAGES");
-    // socket.emit();
+    socket.emit("messageList",messageList.rows);
     
-    console.log(messageList.rows);
+    console.log(typeof(messageList.rows));
   });
     
   socket.on('disconnect', reason => {
