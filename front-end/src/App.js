@@ -1,34 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './App.css';
-import SendMsg from './components/SendMsg';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import SendMsg from "./components/SendMsg";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { io } from "socket.io-client";
+import SocketContext from "./socketContext";
 
 function App() {
-  // const [message, setMessage] = useState('');
+  
+  const[socket, setSocket] = useState(null);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('/api');
-  //       setMessage(response.data.message);
-  //     } catch (error) {
-  //       console.error('There was an error!', error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-
+  useEffect(() => {
+    const newSocket = io("http://localhost:3001");
+    setSocket(newSocket);
+    newSocket.on("connect", () => {
+      console.log(`i am connected | session id: ${newSocket.id}`);
+      
+    });
+    
+    return () => {
+      newSocket.disconnect();
+      console.log(`Session got disconnected`);
+    };
+    
+  }, []);
+  
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        <p>Message from backend: {message}.</p>
-        <p>Hello world {message}.</p>
-      </header> */}
-
-      <SendMsg />
-    </div>
+    <SocketContext.Provider value={socket}>
+      <div className="App">
+        <SendMsg  />
+      </div>
+    </SocketContext.Provider>
   );
 }
 
