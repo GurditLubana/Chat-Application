@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import "./SendMsg.css"
-import SocketContext from '../socketContext';
+import SocketContext from '../Context/socketContext';
 
 export default function Sendmsg(props) {
 

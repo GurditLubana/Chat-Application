@@ -5,8 +5,10 @@ import { fileURLToPath } from "url";
 import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import pg from 'pg';
+// import dbContext from "./front-end/src/Context/dbContext";
 
 env.config();
+
 const db = new pg.Client({
   user: process.env.DB_USERNAME,
   host: process.env.DB_HOST,
@@ -44,9 +46,13 @@ app.get("*", (req, res) => {
 io.on("connection", (socket) => {
   console.log(`a user connected from front end ${socket.id}`);
 
-  socket.on('newMessage', (message)=>{
+  socket.on('newMessage', async (message)=>{
     console.log(message);
-  
+    db.query(`INSERT INTO ChatMessages (message, sender) VALUES ($1, $2);`,[message, socket.id]);
+    const messageList = await db.query("SELECT * FROM CHATMESSAGES");
+    // socket.emit();
+    
+    console.log(messageList.rows);
   });
     
   socket.on('disconnect', reason => {
