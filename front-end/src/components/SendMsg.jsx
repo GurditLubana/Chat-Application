@@ -14,7 +14,7 @@ export default function Sendmsg() {
     e.preventDefault()
     console.log(currentMsg)
     setNewMsg('');
-    socket.emit("newMessage", "Hello I am garry")
+    socket.emit("newMessage", currentMsg)
    
   }
   function handleChange(e) {
