@@ -14,17 +14,12 @@ export default function MessageBody(props) {
     if (socket) {
       socket.on("messageList", (list) => {
         setMessageList(list);
-        // console.log(list);
       });
       
       socket.on("updateScreen", (newMessage) => {
         setMessageList((currentList) => [...currentList, newMessage ]);
         setSenderID(newMessage.sender);
-        // const element = document.getElementById("messageList");
-        // console.log(element.lastChild.classList.add(alignment))
-        console.log("Socket.id :",socket.id);
-        console.log("Sender: ", newMessage.sender)
-
+       
       });
 
       return () => {
@@ -37,8 +32,6 @@ export default function MessageBody(props) {
   useEffect(() => {
     if (lastMessageRef.current) {
       lastMessageRef.current.scrollIntoView({ behavior: "smooth" });
-      console.log("Socket.id 2 :",socket.id);
-      console.log("Sender 2: ", senderID);
       const alignment = senderID === socket.id? "msgSent":"msgRcvd";
       lastMessageRef.current.classList.add(alignment);
     }

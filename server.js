@@ -58,6 +58,7 @@ io.on("connection", async (socket) => {
     
   socket.on('disconnect', reason => {
     console.log(`disconnect ${socket.id} due to ${reason}`);
+    db.query("TRUNCATE TABLE chatmessages;")
   });
 });
 
