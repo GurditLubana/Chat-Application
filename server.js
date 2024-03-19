@@ -52,7 +52,6 @@ io.on("connection", async (socket) => {
     db.query(`INSERT INTO ChatMessages (message, sender) VALUES ($1, $2);`,[message, socket.id]);
     socket.emit('updateScreen', message);
     
-    
     console.log(typeof(messageList.rows));
   });
     

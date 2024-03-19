@@ -4,7 +4,7 @@ import SendMsg from "./components/SendMsg";
 import MessageBody from "./components/MessageBody";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { io } from "socket.io-client";
-import SocketContext from "./Context/socketContext";
+import SocketContext from "./Context/socketContext.js";
 
 function App() {
   
