@@ -50,7 +50,8 @@ io.on("connection", async (socket) => {
 
   socket.on('newMessage', (message)=>{
     db.query(`INSERT INTO ChatMessages (message, sender) VALUES ($1, $2);`,[message, socket.id]);
-    io.emit('updateScreen', message);
+    const messageDetails = {message:message, sender:socket.id}
+    io.emit('updateScreen', messageDetails);
     console.log(`new message recieved from ${socket.id}`)
     
   });
