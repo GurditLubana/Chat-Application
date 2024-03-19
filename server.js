@@ -50,9 +50,9 @@ io.on("connection", async (socket) => {
 
   socket.on('newMessage', (message)=>{
     db.query(`INSERT INTO ChatMessages (message, sender) VALUES ($1, $2);`,[message, socket.id]);
-    socket.emit('updateScreen', message);
+    io.emit('updateScreen', message);
+    console.log(`new message recieved from ${socket.id}`)
     
-    console.log(typeof(messageList.rows));
   });
     
   socket.on('disconnect', reason => {

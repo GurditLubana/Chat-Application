@@ -11,19 +11,15 @@ export default function MessageBody(props) {
   
   useEffect(() => {
     if (socket) {
-      // Attach event listener
       socket.on("messageList", (list) => {
         setMessageList(list);
       });
 
       socket.on("updateScreen", (message) => {
         setMessageList((currentList) => [...currentList, { message }]);
+        console.log("All the connected screens needs to be updated")
       });
 
-      const listvy = document.getElementById("messageList").lastElementChild;
-      // const listvy = document.getElementsByClassName("newMsg")[27].innerHTML;
-      console.log("this is the last element",listvy);
-      // Return a cleanup function to detach event listeners
       return () => {
         socket.off("messageList");
         socket.off("updateScreen");
@@ -38,7 +34,7 @@ export default function MessageBody(props) {
   }, [messageList]); 
 
   return (
-    <div>
+    <div className="col-12">
       <Container className="msgBody">
         <ul className="msgs d-flex  col-12" id="messageList">
           {messageList.map((eachMessage, index) => (
