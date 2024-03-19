@@ -5,8 +5,6 @@ import { fileURLToPath } from "url";
 import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import pg from 'pg';
-// import dbContext from "./front-end/src/Context/dbContext";
-
 env.config();
 
 const db = new pg.Client({
