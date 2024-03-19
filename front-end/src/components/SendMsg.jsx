@@ -12,10 +12,12 @@ export default function Sendmsg(props) {
 
   function handlesubmit(e){
     e.preventDefault()
-    // console.log(currentMsg)
     setNewMsg('');
-    socket.emit("newMessage", currentMsg)
-    props.setNewMessage(currentMsg)
+    if(socket){
+
+      socket.emit("newMessage", currentMsg)
+      props.setNewMessage(currentMsg)
+    }
    
   }
   function handleChange(e) {

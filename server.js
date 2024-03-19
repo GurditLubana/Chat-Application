@@ -43,14 +43,14 @@ app.get("*", (req, res) => {
     res.sendFile(__dirname +"/front-end/build/index.html");
 });
 
-io.on("connection", (socket) => {
+io.on("connection", async (socket) => {
   console.log(`a user connected from front end ${socket.id}`);
+  const messageList = await db.query("SELECT * FROM CHATMESSAGES");
+  socket.emit("messageList",messageList.rows);
 
-  socket.on('newMessage', async (message)=>{
-    // console.log(message);
+  socket.on('newMessage', (message)=>{
     db.query(`INSERT INTO ChatMessages (message, sender) VALUES ($1, $2);`,[message, socket.id]);
-    const messageList = await db.query("SELECT * FROM CHATMESSAGES");
-    socket.emit("messageList",messageList.rows);
+    
     
     console.log(typeof(messageList.rows));
   });
