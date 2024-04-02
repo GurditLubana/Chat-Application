@@ -44,7 +44,7 @@ export default function MessageBody(props) {
   }, [messageList]); 
 
   return (
-    <div className="col-12">
+    <div className="col-10 col-md-8">
       <Container className="msgBody">
         <ul className="msgs d-flex  col-12" id="messageList">
           {messageList.map((eachMessage, index) => (
