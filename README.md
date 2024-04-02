@@ -1,3 +1,6 @@
+![](demo.gif)
+
+
 # Chat Application
 
 This chat application enables real-time communication between users through a web interface. It's built using React.js for the frontend and Node.js with Express for the backend. The application uses WebSocket (specifically socket.io) for real-time messaging, allowing messages to be broadcasted to all connected users. PostgreSQL is used for database management, with Nodemon to keep the server running during development, and CORS to handle cross-origin requests.
