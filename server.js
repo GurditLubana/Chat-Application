@@ -47,7 +47,7 @@ io.on("connection", async (socket) => {
   console.log(`a user connected from front end ${socket.id}`);
   connected_users = [...connected_users, socket.id];
   console.log(connected_users)
-  socket.emit("ConnectedUsers", connected_users)
+  io.emit("ConnectedUsers", connected_users)
   const messageList = await db.query("SELECT * FROM CHATMESSAGES");
   socket.emit("messageList",messageList.rows);
 
@@ -63,6 +63,7 @@ io.on("connection", async (socket) => {
     console.log(`disconnect ${socket.id} due to ${reason}`);
     connected_users = connected_users.filter(user => user !== socket.id);
     console.log("updated user list ", connected_users)
+    io.emit("ConnectedUsers", connected_users)
     db.query("TRUNCATE TABLE chatmessages;")
   });
 });

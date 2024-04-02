@@ -10,14 +10,14 @@ function App() {
   
   const[socket, setSocket] = useState(null);
   const[newMessage, setNewMessage] = useState(null)
-  const[messageList, setMsgList] = useState(["hello", "kive o", "mai theek"])
+  const[messageList, setMsgList] = useState([])
 
   useEffect(() => {
     const newSocket = io("http://localhost:3001");
     setSocket(newSocket);
     newSocket.on("connect", () => {
       console.log(`i am connected | session id: ${newSocket.id}`);
-      
+            
     });
     
     return () => {
