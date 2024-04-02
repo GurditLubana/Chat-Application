@@ -5,6 +5,7 @@ import MessageBody from "./components/MessageBody";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { io } from "socket.io-client";
 import SocketContext from "./Context/socketContext.js";
+import ConnectedUsers from "./components/ConnectedUsers.jsx";
 
 function App() {
   
@@ -38,6 +39,7 @@ function App() {
   return (
     <SocketContext.Provider value={socket}>
       <div className="App">
+        <ConnectedUsers/>
         <MessageBody messageList={messageList}/>
         <SendMsg  setNewMessage={updateMsg}/>
       </div>

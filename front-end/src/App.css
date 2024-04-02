@@ -1,15 +1,14 @@
 .App{
     background-image: url("../public/images/background.png");
-    /* background-color: blue!important; */
     height: 92vh;
     display: flex;
     position: fixed;
     bottom: 9%;
     top:1%;
-    left: 20%;
+    left: 0%;
     right: 20%;
-    margin: auto !important;
+    /* margin: auto !important; */
     justify-items: center;
-    max-width: 60% !important;
+    max-width: 80% !important;
     overflow-y:scroll;
 }
