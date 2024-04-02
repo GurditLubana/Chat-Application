@@ -23,14 +23,9 @@ export default function MessageBody(props) {
        
       });
 
-      socket.on("ConnectedUsers",(list)=>{
-        console.log(list)
-      });
-
       return () => {
         socket.off("messageList");
         socket.off("updateScreen");
-        socket.off("ConnectedUsers");
       };
     }
   }, [socket]);
