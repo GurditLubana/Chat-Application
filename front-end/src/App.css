@@ -1,5 +1,5 @@
 .App{
-    background-image: url("../public/images/background.png");
+    /* background-image: url("../public/images/background.png");
     height: 92vh;
     display: flex;
     position: fixed;
@@ -7,9 +7,9 @@
     top:1%;
     left: 0%;
     right: 20%;
-    /* margin: auto !important; */
+   
     justify-items: center;
     max-width: 80% !important;
     overflow-y:scroll;
-    
+     */
 }

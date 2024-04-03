@@ -12,6 +12,8 @@ function App() {
   const[socket, setSocket] = useState(null);
   const[newMessage, setNewMessage] = useState(null)
   const[messageList, setMsgList] = useState([])
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
 
   useEffect(() => {
     const newSocket = io("http://localhost:3001");
@@ -35,16 +37,30 @@ function App() {
 
   }
 
+  const handleLogin = (username, password) => {
+    // Here you would usually make a request to your backend to authenticate the user
+    // For demonstration, we assume the login is successful
+    setIsAuthenticated(true);
+  };
+  
   
   return (
     <SocketContext.Provider value={socket}>
       <div className="App">
-        <ConnectedUsers/>
-        <MessageBody messageList={messageList}/>
-        <SendMsg  setNewMessage={updateMsg}/>
+        {isAuthenticated ? (
+          <>
+            <ConnectedUsers/>
+            <MessageBody messageList={messageList}/>
+            <SendMsg setNewMessage={updateMsg}/>
+          </>
+        ) : (
+          // <Login onLogin={handleLogin} />
+          <p>Hello world</p>
+        )}
       </div>
     </SocketContext.Provider>
   );
+  
 }
 
 export default App;

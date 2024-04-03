@@ -2,11 +2,8 @@ import { React, useContext, useEffect, useRef, useState } from "react";
 import "./ConnectedUsers.css";
 import {
   CDBSidebar,
-  CDBSidebarContent,
   CDBSidebarFooter,
   CDBSidebarHeader,
-  CDBSidebarMenu,
-  CDBSidebarMenuItem,
 } from "cdbreact";
 import SocketContext from "../Context/socketContext.js";
 

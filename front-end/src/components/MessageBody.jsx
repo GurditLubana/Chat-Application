@@ -3,6 +3,7 @@ import { React, useContext, useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import "./MessageBody.css";
 import SocketContext from "../Context/socketContext.js";
+import ConnectedUsers from "./ConnectedUsers.jsx";
 
 export default function MessageBody(props) {
   const socket = useContext(SocketContext);
@@ -39,7 +40,11 @@ export default function MessageBody(props) {
   }, [messageList]); 
 
   return (
+    <>
+      {/* <ConnectedUsers className="col-2 col-md-4"/> */}
     <div className="col-10 col-md-8">
+
+
       <Container className="msgBody">
         <ul className="msgs d-flex  col-12" id="messageList">
           {messageList.map((eachMessage, index) => (
@@ -50,5 +55,6 @@ export default function MessageBody(props) {
         </ul>
       </Container>
     </div>
+    </>
   );
 }
