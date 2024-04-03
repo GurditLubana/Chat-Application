@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { io } from "socket.io-client";
 import SocketContext from "./Context/socketContext.js";
 import ConnectedUsers from "./components/ConnectedUsers.jsx";
+import Login from "./components/Login.jsx";
 
 function App() {
   
@@ -54,8 +55,8 @@ function App() {
             <SendMsg setNewMessage={updateMsg}/>
           </>
         ) : (
-          // <Login onLogin={handleLogin} />
-          <p>Hello world</p>
+          <Login onLogin={handleLogin} />
+          // <p>Hello world</p>
         )}
       </div>
     </SocketContext.Provider>

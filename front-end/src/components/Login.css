@@ -1,0 +1,31 @@
+.loginPage{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginForm{
+    /* border: 10px solid;
+    border-color: red; */
+}
+
+/* .form-control {
+    display: block;
+    width: 60%;
+} */
+
+.line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc; /* or any color you prefer */
+  }
+  
+  /* If you need to fine-tune the vertical alignment or spacing */
+  .text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold; /* If you want the text to be bold */
+  }
+  
