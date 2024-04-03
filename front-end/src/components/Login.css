@@ -6,15 +6,10 @@
     
 }
 
-.loginForm{
-    /* border: 10px solid;
-    border-color: red; */
+.form-control {
+    background-color: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.253);
 }
-
-/* .form-control {
-    display: block;
-    width: 60%;
-} */
 
 .appLogo img {
     max-width: 100%;  
@@ -37,3 +32,11 @@
     font-weight: lighter; 
   }
   
+  .haveAccount{
+    border: none;
+    background-color: white;
+  }
+
+  .haveAccount:hover{
+    color: blue;
+  }

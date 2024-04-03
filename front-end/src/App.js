@@ -56,7 +56,6 @@ function App() {
           </>
         ) : (
           <Login onLogin={handleLogin} />
-          // <p>Hello world</p>
         )}
       </div>
     </SocketContext.Provider>
