@@ -9,51 +9,12 @@ export default function Login() {
     <div className="loginPage container">
       <div className="col-4">hello world</div>
       <div className="loginForm col-8">
-        {/* <h1 className='container'>Sign up</h1>
-        <section className='oAuth'>
-            <button className='btn btn-dark m-2'>Gmail</button>
-            <button className='btn btn-dark m-2'>Twitter</button>
-            <button className='btn btn-dark m-2'>Facebook</button>
-        </section>
-        <section className='orLine'>
-        <Row className="my-4">
-        <Col className="d-flex justify-content-center align-items-center">
-          <div className="line"></div>
-        </Col>
-        <Col xs={2} className="text-center">
-          or
-        </Col>
-        <Col className="d-flex justify-content-center align-items-center">
-          <div className="line"></div>
-        </Col>
-      </Row>
-        </section>
-
-    <Form >
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>*/}
+        
 
         <Container className="sign-up-container">
           <Row className="justify-content-md-center">
             <Col md={6} className="sign-up-box">
-              <h2 className="text-center mb-3">Sign up</h2>
+              <h2 className="text-center fw-normal mb-4">Sign up</h2>
 
               <Button variant="primary" className="mb-2 w-100">
                 Facebook
@@ -65,10 +26,8 @@ export default function Login() {
                 Twitter
               </Button>
 
-              {/* <DividerWithText text="or" /> */}
-
               <section className="orLine">
-                <Row className="my-4">
+                <Row className="my-3">
                   <Col className="d-flex justify-content-center align-items-center">
                     <div className="line"></div>
                   </Col>
@@ -82,43 +41,33 @@ export default function Login() {
               </section>
 
               <Form>
-                {/* <FormInput label="Full name" type="text" placeholder="Enter your full name" />
-            <FormInput label="Email" type="email" placeholder="Enter your email" />
-            <FormInput label="Password" type="password" placeholder="Create a password" />
-            <Button variant="primary" type="submit" className="w-100 mt-3 mb-2">
-              Sign up
-            </Button> */}
+
+              <Form.Group className="mb-3" controlId="formBasicName">
+                  <Form.Control type="text" placeholder="Full Name" />
+                </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
-                  <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                  </Form.Text>
+                  <Form.Control type="email" placeholder="Email" />
+                  
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Check me out" />
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Control type="password" placeholder="Confirm Password" />
                 </Form.Group>
+                
                 <Button
                   variant="primary"
                   type="submit "
                   className="w-100 mt-3 mb-2"
                 >
-                  Submit
+                  Sign up
                 </Button>
               </Form>
 
-              <p className="text-center mt-3">
-                <span className="text-muted">I already have an account</span> |{" "}
-                <span>Terms of service apply</span>
-              </p>
-
-              {/* <DividerWithText text="Continue as guest" /> */}
             </Col>
           </Row>
         </Container>

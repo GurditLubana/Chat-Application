@@ -26,6 +26,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold; /* If you want the text to be bold */
+    font-weight: lighter; 
   }
   
