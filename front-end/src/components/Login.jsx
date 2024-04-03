@@ -7,7 +7,7 @@ import "./Login.css";
 export default function Login() {
   return (
     <div className="loginPage container">
-      <div className="col-4">hello world</div>
+      <div className="appLogo col-4"><img src=".\images\chit-chat.png" alt="chit-chat logo"></img></div>
       <div className="loginForm col-8">
         
 
