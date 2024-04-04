@@ -16,8 +16,17 @@ const [isSidebarToggled, setIsSidebarToggled] = useState(true);
 
 
 useEffect(() => {
-  // setIsSidebarExpanded(isSidebarToggled);
   console.log(isSidebarToggled)
+  const msgBody = document.getElementById("msgBody");
+  if(!isSidebarToggled){ 
+    msgBody.classList.remove("sidebarToggled")
+    msgBody.classList.add("sidebarNotToggled");
+}
+
+  else{  
+    msgBody.classList.remove("sidebarNotToggled")
+    msgBody.classList.add("sidebarToggled");
+}
 }, [isSidebarToggled]);
 
 

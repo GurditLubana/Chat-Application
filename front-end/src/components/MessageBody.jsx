@@ -42,7 +42,7 @@ export default function MessageBody(props) {
   return (
     <>
 
-      <Container className="msgBody ">
+      <Container id="msgBody" className="msgBody ">
         <ul className="msgs d-flex  col-12" id="messageList">
           {messageList.map((eachMessage, index) => (
             <li className={"newMsg my-2 py-1 px-2"}  key={index} ref={index === messageList.length - 1 ? lastMessageRef : null}>
