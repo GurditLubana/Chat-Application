@@ -5,8 +5,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import "./Login.css";
 import SignUp from "./SignUp";
 
-export default function Login() {
+export default function Login(props) {
     const [haveAccount, setHaveAccount] = useState(false);
+    const handleLoginClick= ()=>{
+        props.onLogin("hello", "dfd");
+    }
   return (
     <div className="loginPage container">
       <div className="appLogo col-4 ">
@@ -18,13 +21,13 @@ export default function Login() {
             <Row className="justify-content-md-center">
               <Col md={6} className="login-box">
                 <h2 className="text-center fw-normal mb-4">Login</h2>
-                <Button variant="primary" className="mb-2 w-100">
+                <Button variant="primary" className="oAuth fb mb-2 w-100"><img className="btnLogo me-3" src=".\svg\facebook.svg" alt="" />
                   Facebook
                 </Button>
-                <Button variant="danger" className="mb-2 w-100">
+                <Button variant="danger" className="oAuth google mb-2 w-100"><img className="btnLogo me-3" src=".\svg\google.svg" alt="" />
                   Google
                 </Button>
-                <Button variant="info" className="mb-4 w-100">
+                <Button variant="info" className="oAuth twitter mb-4 w-100"><img className="btnLogo me-3" src=".\svg\twitter.svg" alt="" />
                   Twitter
                 </Button>
   
@@ -43,6 +46,7 @@ export default function Login() {
                     variant="primary"
                     type="submit "
                     className="w-100 mt-3 mb-2"
+                    onClick={handleLoginClick}
                   >
                     Login
                   </Button>
@@ -52,7 +56,7 @@ export default function Login() {
             </Row>
           </Container>
             ):(
-            <SignUp setHaveAccount={setHaveAccount}/>
+            <SignUp setHaveAccount={setHaveAccount} onSignup={props.onLogin}/>
         )}
         
       </div>
