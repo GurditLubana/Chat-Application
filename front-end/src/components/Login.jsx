@@ -108,7 +108,7 @@ export default function Login(props) {
             </Row>
           </Container>
         ) : (
-          <SignUp setHaveAccount={setHaveAccount} onSignup={props.onLogin} />
+          <SignUp setHaveAccount={setHaveAccount} handleGoogleClick={handleGoogleClick}/>
         )}
       </div>
     </div>

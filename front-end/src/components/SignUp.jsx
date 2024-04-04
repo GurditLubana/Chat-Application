@@ -9,8 +9,11 @@ export default function SignUp(props) {
         props.setHaveAccount(true);
     }
 
+    const handleGoogleClick = ()=>{
+      props.handleGoogleClick();
+    }
     const handleSignUpClick= ()=>{
-        props.onSignup("hello", "dfd");
+        
     }
   return (
     <Container className="sign-up-container">
@@ -21,7 +24,7 @@ export default function SignUp(props) {
                 <Button variant="primary" className="oAuth fb mb-2 w-100"><img className="btnLogo me-3" src=".\svg\facebook.svg" alt="" />
                   Facebook
                 </Button>
-                <Button variant="danger" className="oAuth google mb-2 w-100"><img className="btnLogo me-3" src=".\svg\google.svg" alt="" />
+                <Button  onClick={handleGoogleClick} variant="danger" className="oAuth google mb-2 w-100"><img className="btnLogo me-3" src=".\svg\google.svg" alt="" />
                   Google
                 </Button>
                 <Button variant="info" className="oAuth twitter mb-4 w-100"><img className="btnLogo me-3" src=".\svg\twitter.svg" alt="" />
