@@ -50,7 +50,7 @@ function App() {
       <div className="App">
         {isAuthenticated ? (
           <>
-            <ConnectedUsers/>
+            <ConnectedUsers />
             <MessageBody messageList={messageList}/>
             <SendMsg setNewMessage={updateMsg}/>
           </>

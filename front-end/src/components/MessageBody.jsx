@@ -11,7 +11,7 @@ export default function MessageBody(props) {
   const [senderID, setSenderID] = useState("");
   const lastMessageRef = useRef(null);
 
-  
+
   useEffect(() => {
     if (socket) {
       socket.on("messageList", (list) => {
@@ -41,11 +41,8 @@ export default function MessageBody(props) {
 
   return (
     <>
-      {/* <ConnectedUsers className="col-2 col-md-4"/> */}
-    <div className="col-10 col-md-8">
 
-
-      <Container className="msgBody">
+      <Container className="msgBody ">
         <ul className="msgs d-flex  col-12" id="messageList">
           {messageList.map((eachMessage, index) => (
             <li className={"newMsg my-2 py-1 px-2"}  key={index} ref={index === messageList.length - 1 ? lastMessageRef : null}>
@@ -54,7 +51,6 @@ export default function MessageBody(props) {
           ))}
         </ul>
       </Container>
-    </div>
     </>
   );
 }

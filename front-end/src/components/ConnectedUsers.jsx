@@ -8,8 +8,19 @@ import {
 import SocketContext from "../Context/socketContext.js";
 
 export default function ConnectedUsers() {
+
+
 const socket = useContext(SocketContext);
 const [onlineUserList, setOnlineUserList] = useState([]);
+const [isSidebarToggled, setIsSidebarToggled] = useState(true); 
+
+
+useEffect(() => {
+  // setIsSidebarExpanded(isSidebarToggled);
+  console.log(isSidebarToggled)
+}, [isSidebarToggled]);
+
+
 useEffect(() => {
     if (socket) {
       
@@ -23,12 +34,20 @@ useEffect(() => {
       };
     }
   }, [socket]);
+
+  const toggleSidebar = () => {
+    setIsSidebarToggled(!isSidebarToggled);
+  };
+
   return (
     <div
       style={{ display: "flex", height: "92vh", overflow: "scroll initial" }}
     >
-      <CDBSidebar toggled={true} textColor="#fff" backgroundColor="#00a884">
-        <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+      <CDBSidebar   id="sidebar" toggled={isSidebarToggled}
+        textColor="#fff"
+        backgroundColor="#00a884"
+      >
+        <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large" onClick={toggleSidebar}></i>}>
           <a
             href="/"
             className="text-decoration-none"
@@ -47,7 +66,9 @@ useEffect(() => {
               padding: "20px 5px",
             }}
           >
-            Sidebar Footer
+
+            <button className="btn btn-info mx-2">Logout</button>
+            
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
