@@ -1,10 +1,10 @@
 import express from "express";
-import env from "dotenv";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import pg from 'pg';
+import env from "dotenv";
 env.config();
 
 let connected_users = [];
@@ -57,6 +57,11 @@ io.on("connection", async (socket) => {
     io.emit('updateScreen', messageDetails);
     console.log(`new message recieved from ${socket.id}`)
     
+  });
+
+  socket.on('googleClicked',()=>{
+    //  i will send .env from server to the client side
+    socket.emit("googleClientID", process.env.GOOGLE_CLIENT_ID)
   });
     
   socket.on('disconnect', reason => {
