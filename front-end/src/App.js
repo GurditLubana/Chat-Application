@@ -55,7 +55,7 @@ function App() {
             <SendMsg setNewMessage={updateMsg}/>
           </>
         ) : (
-          <Login onLogin={handleLogin} />
+          <Login onLogin={handleLogin} setIsAuthenticated={setIsAuthenticated}/>
         )}
       </div>
     </SocketContext.Provider>

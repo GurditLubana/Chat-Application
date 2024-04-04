@@ -60,7 +60,7 @@ io.on("connection", async (socket) => {
   });
 
   socket.on('googleClicked',()=>{
-    //  i will send .env from server to the client side
+
     socket.emit("googleClientID", process.env.GOOGLE_CLIENT_ID)
   });
     

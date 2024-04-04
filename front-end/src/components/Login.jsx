@@ -3,19 +3,16 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-bootstrap";
 import SocketContext from "../Context/socketContext.js";
+import SignUp from "./SignUp.jsx";
 import "./Login.css";
-import SignUp from "./SignUp";
+import Cookies from "js-cookie";
 
 export default function Login(props) {
   const [haveAccount, setHaveAccount] = useState(false);
   const socket = useContext(SocketContext);
 
   const handleGoogleClick = () => {
-    // const callbackUrl = `${window.location.origin}`;
-    // const targetUrl = `https://accounts.google.com/o/oauth2/auth?redirect_uri=${encodeURIComponent(
-    //   callbackUrl
-    // )}&response_type=token&client_id=${process.env.GOOGLE_CLIENT_ID}&scope=openid%20email%20profile`;
-    // window.location.href = targetUrl;
+    
     if (socket) {
       socket.emit("googleClicked", "Sign in using google");
     }
@@ -42,6 +39,17 @@ export default function Login(props) {
     }
   }, [socket]);
 
+  useEffect(() => {
+    const accessTokenRegex = /access_token=([^&]+)/;
+    const isMatch = window.location.href.match(accessTokenRegex);
+
+    if (isMatch) {
+  
+      const accessToken = isMatch[1];
+      Cookies.set("access_token", accessToken);
+      props.setIsAuthenticated(true);
+    }
+  }, []);
   return (
     <div className="loginPage container">
       <div className="appLogo col-4 ">
