@@ -44,8 +44,12 @@ app.get("*", (req, res) => {
 });
 
 io.on("connection", async (socket) => {
-  console.log(`a user connected from front end ${socket.id}`);
-  connected_users = [...connected_users, socket.id];
+  socket.on("newUser",(userData)=>{
+    
+    // console.log("new user is ",userData);
+    connected_users = [...connected_users, userData];
+    console.log(`${userData.name} joined the Chat.`);
+  })
   console.log(connected_users)
   io.emit("ConnectedUsers", connected_users)
   const messageList = await db.query("SELECT * FROM CHATMESSAGES");
@@ -63,9 +67,9 @@ io.on("connection", async (socket) => {
     socket.emit("googleClientID", process.env.GOOGLE_CLIENT_ID)
   });
   
-  socket.on('logout', (socketId)=>{
-    console.log(`disconnect ${socket.id} due to logout`);
-    connected_users = connected_users.filter(user => user !== socketId);
+  socket.on('logout', (user)=>{
+    console.log(`disconnect ${user.name} due to logout`);
+    connected_users = connected_users.filter(users => users !== user);
   });
 
   socket.on('disconnect', reason => {
