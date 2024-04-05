@@ -60,10 +60,14 @@ io.on("connection", async (socket) => {
   });
 
   socket.on('googleClicked',()=>{
-
     socket.emit("googleClientID", process.env.GOOGLE_CLIENT_ID)
   });
-    
+  
+  socket.on('logout', (socketId)=>{
+    console.log(`disconnect ${socket.id} due to logout`);
+    connected_users = connected_users.filter(user => user !== socketId);
+  });
+
   socket.on('disconnect', reason => {
     console.log(`disconnect ${socket.id} due to ${reason}`);
     connected_users = connected_users.filter(user => user !== socket.id);

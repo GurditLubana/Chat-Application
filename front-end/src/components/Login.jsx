@@ -54,7 +54,7 @@ export default function Login(props) {
  
       navigate("/chat");
     }
-  }, []);
+  }, [navigate]);
   return (
     <div className="loginPage container">
       <div className="appLogo col-4 ">

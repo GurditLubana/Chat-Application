@@ -16,7 +16,7 @@ export default function Sendmsg(props) {
     if(socket){
 
       socket.emit("newMessage", currentMsg)
-      props.setNewMessage(currentMsg)
+      props.setMsgList(list => [...list,currentMsg])
     }
    
   }

@@ -1,4 +1,4 @@
-import { React, useContext, useEffect, useRef, useState } from "react";
+import { React, useContext, useEffect, useState } from "react";
 import "./ConnectedUsers.css";
 import {
   CDBSidebar,
@@ -53,6 +53,7 @@ useEffect(() => {
 
   const handleLogout = ()=>{
     Cookies.remove('access_token');
+    socket.emit("logout", socket.id );
     navigate("/");
   }
   return (
