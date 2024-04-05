@@ -3,7 +3,6 @@ import { React, useContext, useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import "./MessageBody.css";
 import SocketContext from "../Context/socketContext.js";
-import ConnectedUsers from "./ConnectedUsers.jsx";
 
 export default function MessageBody(props) {
   const socket = useContext(SocketContext);

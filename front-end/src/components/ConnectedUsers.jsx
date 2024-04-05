@@ -50,7 +50,7 @@ useEffect(() => {
 
   return (
     <div
-      style={{ display: "flex", height: "92vh", overflow: "scroll initial" }}
+      style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
     >
       <CDBSidebar   id="sidebar" toggled={isSidebarToggled}
         textColor="#fff"
