@@ -7,11 +7,12 @@ import {
 } from "cdbreact";
 import SocketContext from "../Context/socketContext.js";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 
 export default function ConnectedUsers() {
 
-
+const navigate= useNavigate();
 const socket = useContext(SocketContext);
 const [onlineUserList, setOnlineUserList] = useState([]);
 const [isSidebarToggled, setIsSidebarToggled] = useState(true); 
@@ -50,6 +51,10 @@ useEffect(() => {
     setIsSidebarToggled(!isSidebarToggled);
   };
 
+  const handleLogout = ()=>{
+    Cookies.remove('access_token');
+    navigate("/");
+  }
   return (
     <div
       style={{ display: "flex", height: "100vh", overflow: "scroll initial" }}
@@ -78,7 +83,7 @@ useEffect(() => {
             }}
           >
 
-            <button onClick={()=>{Cookies.remove('access_token')}}className="btn btn-info mx-2">Logout</button>
+            <button onClick={handleLogout} className="btn btn-info mx-2">Logout</button>
             
           </div>
         </CDBSidebarFooter>
