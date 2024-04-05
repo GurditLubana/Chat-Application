@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect} from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-bootstrap";
@@ -6,10 +6,14 @@ import SocketContext from "../Context/socketContext.js";
 import SignUp from "./SignUp.jsx";
 import "./Login.css";
 import Cookies from "js-cookie";
+import { useNavigate } from 'react-router-dom';
+
+
 
 export default function Login(props) {
   const [haveAccount, setHaveAccount] = useState(false);
   const socket = useContext(SocketContext);
+  const navigate = useNavigate();
 
   const handleGoogleClick = () => {
     
@@ -47,7 +51,8 @@ export default function Login(props) {
   
       const accessToken = isMatch[1];
       Cookies.set("access_token", accessToken);
-      props.setIsAuthenticated(true);
+ 
+      navigate("/chat");
     }
   }, []);
   return (
