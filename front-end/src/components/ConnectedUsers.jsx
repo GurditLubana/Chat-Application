@@ -6,6 +6,8 @@ import {
   CDBSidebarHeader,
 } from "cdbreact";
 import SocketContext from "../Context/socketContext.js";
+import Cookies from "js-cookie";
+
 
 export default function ConnectedUsers() {
 
@@ -76,7 +78,7 @@ useEffect(() => {
             }}
           >
 
-            <button className="btn btn-info mx-2">Logout</button>
+            <button onClick={()=>{Cookies.remove('access_token')}}className="btn btn-info mx-2">Logout</button>
             
           </div>
         </CDBSidebarFooter>
