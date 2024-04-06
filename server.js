@@ -44,14 +44,21 @@ app.get("*", (req, res) => {
 });
 
 io.on("connection", async (socket) => {
+  console.log("new user connected");
+  io.emit("ConnectedUsers", connected_users)
+
   socket.on("newUser",(userData)=>{
     
-    // console.log("new user is ",userData);
-    connected_users = [...connected_users, userData];
-    console.log(`${userData.name} joined the Chat.`);
-  })
-  console.log(connected_users)
-  io.emit("ConnectedUsers", connected_users)
+    if(!connected_users.includes(userData)){
+
+      // console.log("new user is ",userData);
+      connected_users = [...connected_users, userData];
+      console.log(`${userData.name} joined the Chat.`);
+      console.log("New user joined and this is the list: ",connected_users);
+    }
+    io.emit("ConnectedUsers", connected_users)
+    
+  });
   const messageList = await db.query("SELECT * FROM CHATMESSAGES");
   socket.emit("messageList",messageList.rows);
 
@@ -69,15 +76,14 @@ io.on("connection", async (socket) => {
   
   socket.on('logout', (user)=>{
     console.log(`disconnect ${user.name} due to logout`);
-    connected_users = connected_users.filter(users => users !== user);
+    console.log("check if user included in the array or not: ",connected_users.includes(user))
+    connected_users = connected_users.filter((users) => users.id !== user.id );
+    console.log("User Disconnected and this is the updated list: ",connected_users);
   });
 
   socket.on('disconnect', reason => {
     console.log(`disconnect ${socket.id} due to ${reason}`);
-    connected_users = connected_users.filter(user => user !== socket.id);
-    console.log("updated user list ", connected_users)
-    io.emit("ConnectedUsers", connected_users)
-    db.query("TRUNCATE TABLE chatmessages;")
+   
   });
 });
 

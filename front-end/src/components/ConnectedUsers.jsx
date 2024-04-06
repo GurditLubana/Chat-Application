@@ -78,9 +78,9 @@ export default function ConnectedUsers(props) {
         <CDBSidebarContent>
           <CDBSidebarMenu>
         
-        {onlineUserList.map((user) => {
+        {onlineUserList.map((user,index) => {
           
-          return <CDBSidebarMenuItem className="profileTab mb-4" ><img className="profilePic" src= {`${user.picture}`} alt={`${user.picture}`} ></img><p className="userName">{user.name}</p></CDBSidebarMenuItem>;          ;
+          return <CDBSidebarMenuItem key={index} className="profileTab mb-4" ><img className="profilePic" src= {`${user.picture}`} alt={`${user.picture}`} ></img><p className="userName">{user.name}</p></CDBSidebarMenuItem>;          ;
         })}
           </CDBSidebarMenu>
         </CDBSidebarContent>
