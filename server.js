@@ -78,6 +78,7 @@ io.on("connection", async (socket) => {
     console.log(`disconnect ${user.name} due to logout`);
     console.log("check if user included in the array or not: ",connected_users.includes(user))
     connected_users = connected_users.filter((users) => users.id !== user.id );
+    io.emit("ConnectedUsers", connected_users)
     console.log("User Disconnected and this is the updated list: ",connected_users);
   });
 
