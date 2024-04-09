@@ -39,7 +39,7 @@ export default function Sendmsg(props) {
               onChange={handleChange}
               
             />
-            <Button type='submit' variant="outline-success">Send</Button>
+            <Button className="sendMsgBtn" type='submit' variant="outline-success">Send</Button>
           </Form>
       </Container>
  

@@ -1,13 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import ConnectedUsers from "./ConnectedUsers";
 import MessageBody from "./MessageBody";
-import Sendmsg from "./SendMsg";
+// import Sendmsg from "./SendMsg";
 import SocketContext from "../Context/socketContext.js";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 export default function ChatApp() {
-  const [messageList, setMsgList] = useState([]);
   const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState({});
 const socket = useContext(SocketContext);
@@ -34,8 +33,7 @@ const socket = useContext(SocketContext);
   return (
     <div>
       <ConnectedUsers userDetails={userDetails}/>
-      <MessageBody messageList={messageList} />
-      <Sendmsg setMsgList={setMsgList} />
+      <MessageBody  />
     </div>
   );
 }

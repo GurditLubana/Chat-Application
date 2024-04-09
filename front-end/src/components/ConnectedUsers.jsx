@@ -71,7 +71,7 @@ export default function ConnectedUsers(props) {
             className="text-decoration-none"
             style={{ color: "inherit" }}
           >
-            Online Users
+            Users
           </a>
         </CDBSidebarHeader>
 

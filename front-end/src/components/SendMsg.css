@@ -12,3 +12,12 @@
 .form-control {
     background-color: white !important;
 }
+
+.sendMsgBtn{
+    background-color: rgb(25, 135, 84);
+    color: white;
+}
+
+.sendMsgBtn:hover{
+    opacity: 0.9;
+}

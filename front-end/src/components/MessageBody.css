@@ -3,16 +3,22 @@
 list-style: none;
 flex-direction: column;
 align-items: end;
+height: 92vh;
+overflow: scroll;
+margin-right: 5%;
 
 }
 
+.msgs::-webkit-scrollbar {
+  display: none;
+}
 .newMsg{
   background-color: #00a884;
   display: inline-block;
   border-radius: 4px;
   
 }
-/* b8febf */
+
 
 .msgSent{
   align-self: end;
@@ -25,25 +31,28 @@ align-items: end;
 
 .msgBody{
   background-image: url("../../public/images/background.png");
-    display: flex;
+   display: flex;
     position: fixed;
-    bottom: 8%;
+    bottom: 0%;
     top:0%;
     right: 20%;
-    /* margin: auto !important; */
     justify-items: center;
-    overflow-y:scroll;
+   
 }
 
 
 .sidebarToggled{
-  left: 8%;
+  left: 7%;
   max-width: 75% !important;
 
 }
 
 .sidebarNotToggled{
-  left: 5%;
+  left: 10%;
   max-width: 78% !important;
 
+}
+
+img.profilePic {
+  height: 60px;
 }

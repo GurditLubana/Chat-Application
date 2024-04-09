@@ -3,6 +3,8 @@ import { React, useContext, useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import "./MessageBody.css";
 import SocketContext from "../Context/socketContext.js";
+import Sendmsg from "./SendMsg";
+
 
 export default function MessageBody(props) {
   const socket = useContext(SocketContext);
@@ -39,17 +41,20 @@ export default function MessageBody(props) {
   }, [messageList]); 
 
   return (
-    <>
+    <div id="msgBody" className="msgBody ">
 
-      <Container id="msgBody" className="msgBody ">
-        <ul className="msgs d-flex  col-12" id="messageList">
+      <Container  >
+        <ul className="msgs d-flex mb-5 col-12" id="messageList">
           {messageList.map((eachMessage, index) => (
-            <li className={"newMsg my-2 py-1 px-2"}  key={index} ref={index === messageList.length - 1 ? lastMessageRef : null}>
+            <li className={"newMsg my-2 mx-3 py-1 px-2"}  key={index} ref={index === messageList.length - 1 ? lastMessageRef : null}>
               {eachMessage.message}
             </li>
           ))}
         </ul>
       </Container>
-    </>
+      <Sendmsg setMsgList={setMessageList} />
+
+
+    </div>
   );
 }
