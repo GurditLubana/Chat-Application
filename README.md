@@ -5,6 +5,16 @@
 
 This chat application enables real-time communication between users through a web interface. It's built using React.js for the frontend and Node.js with Express for the backend. The application uses WebSocket (specifically socket.io) for real-time messaging, allowing messages to be broadcasted to all connected users. PostgreSQL is used for database management, with Nodemon to keep the server running during development, and CORS to handle cross-origin requests.
 
+## Features
+
+- Real-time messaging between connected users.
+- Broadcast messages using WebSocket.
+- Authenticates user using OAuth.
+- Saves Session using Cookies.
+- You can't get access to your chats without logging in.
+- Shows a list of connected users.
+- Saves your Chat history.
+   
 ## Prerequisites
 
 Before running this application, ensure you have the following installed:
@@ -64,15 +74,8 @@ npm start
 ```
 This will launch the application in your default web browser.
 
-## Features
-
-- Real-time messaging between connected users.
-- Broadcast messages using WebSocket.
-
 ## Future Improvements
 
-- Implementing user authentication and authorization.
 - Creating private rooms for specific user groups.
-- Adding message persistence to allow users to view message history.
 - Enhancing the UI/UX for a better user experience.
 - Deploying the application for public access.
