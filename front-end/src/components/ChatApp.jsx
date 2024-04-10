@@ -33,7 +33,7 @@ const socket = useContext(SocketContext);
   return (
     <div>
       <ConnectedUsers userDetails={userDetails}/>
-      <MessageBody  />
+      <MessageBody  userDetails={userDetails}/>
     </div>
   );
 }

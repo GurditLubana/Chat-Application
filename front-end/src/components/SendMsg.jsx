@@ -14,8 +14,8 @@ export default function Sendmsg(props) {
     e.preventDefault()
     setNewMsg('');
     if(socket){
-
-      socket.emit("newMessage", currentMsg)
+      const sender = props.userDetails;
+      socket.emit("newMessage", {message:currentMsg, sender:sender })
       props.setMsgList(list => [...list,currentMsg])
     }
    
