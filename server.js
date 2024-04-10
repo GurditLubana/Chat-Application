@@ -45,7 +45,6 @@ io.on("connection", async (socket) => {
 
   socket.on("newUser", (userData) => {
     if (!connected_users.includes(userData)) {
-      // console.log("new user is ",userData);
       connected_users = [...connected_users, userData];
       console.log(`${userData.name} joined the Chat.`);
       console.log("New user joined and this is the list: ", connected_users);
@@ -60,7 +59,6 @@ io.on("connection", async (socket) => {
       messageDetails.message,
       messageDetails.sender.id,
     ]);
-    console.log("this is messageDetails ", messageDetails);
     io.emit("updateScreen", messageDetails);
     console.log(`new message recieved from ${messageDetails.sender.name}`);
   });
